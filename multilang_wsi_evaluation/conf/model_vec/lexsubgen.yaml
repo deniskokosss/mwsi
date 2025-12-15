@@ -1,0 +1,10 @@
+_target_: substwsi.lexsubgen_adapter.LexSubGenAdapter
+
+defaults:
+  - _self_
+  - base_substgen: xlmr123
+  - lang_substgen_overrides: embs
+  - subst_vectorizer: tfidf
+
+batch_size: 1
+cache_path: /mnt/d/science/summer-wsi/.cache/${hydra:runtime.choices.model_vec/base_substgen}_${hydra:runtime.choices.model_vec/lang_substgen_overrides}_${model_vec.base_substgen.prob_estimator.temperature}.json

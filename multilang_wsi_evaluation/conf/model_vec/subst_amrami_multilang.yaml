@@ -1,0 +1,54 @@
+defaults:
+  - _self_
+
+subst_params:
+  path_to_configs: ${hydra:runtime.cwd}/multilang_wsi_evaluation/conf/model_vec/subst_params
+  lang_substs:
+    en:
+      - en_(or_even)_right_amrami
+      - T_amrami
+    ru:
+      - T_amrami
+      - ru_(or_even)_right_amrami
+    sl:
+      - sl_(or_even)_right_amrami
+      - T_amrami
+    bg:
+      - bg_(or_even)_right_amrami
+      - T_amrami
+    ja:
+      - ja_(or_even)_right_amrami
+      - T_amrami
+    it:
+      - it_(or_even)_right_amrami
+      - T_amrami
+    zh:
+      - zh_(or_even)_right_amrami
+      - T_amrami
+    de:
+      - de_(or_even)_right_amrami
+      - T_amrami
+    sv:
+      - sv_(or_even)_right_amrami
+      - T_amrami
+
+_target_: SubstWSI_rombek.src.VectorizingPipeline.VectorizingPipeline
+
+preprocessor_config:
+  disable: True
+
+substs_overrides:
+  path_to_substs: ${hydra:runtime.cwd}/SubstWSI_rombek/substs
+  model_path: ${hydra:runtime.cwd}/xlmr_large/model.pt
+
+lemma_config:
+  mode: word
+  lemmatizer_name: stanza
+  cache_path: ${hydra:runtime.cwd}/SubstWSI_rombek/.subst_amrami_multi
+
+vec_config:
+  vec_mode: amrami
+  ood_mode: res_mean
+  vocab_size: 250000
+  top_k: 100
+  vec_transform: binary

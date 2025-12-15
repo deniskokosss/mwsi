@@ -1,0 +1,2 @@
+_target_: dummy_vectorizer.DummyVectorizer
+vectors_dim: 128

@@ -1,0 +1,70 @@
+en:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"
+ru:
+  lang: "ru"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"
+it:
+  lang: "ru"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"
+ja:
+  lang: "ru"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"
+sl:
+  lang: "ru"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"
+bg:
+  lang: "ru"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"
+zh:
+  lang: "ru"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"

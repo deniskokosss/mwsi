@@ -1,0 +1,38 @@
+defaults:
+  - override hydra/launcher: joblib
+
+substitutes_dump:
+#  - '../russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone-beamsearchFalse/_mask__mask_-(а-также-T)-2ltr2f_topk150_fixspacesTrue.npz'
+#  - '../russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone-beamsearchFalse/T-(а-также-_mask__mask_)-2ltr2f_topk150_fixspacesTrue.npz'
+#  - '../russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone/_mask_-(а-также-T)-2ltr1f_topk150_fixspacesTrue.npz'
+#  - '../russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone/T-(а-также-_mask_)-2ltr1f_topk150_fixspacesTrue.npz'
+#  - '../russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone/_mask__mask__mask_-(а-также-T)-2ltr3f_topk150_fixspacesTrue.npz'
+#  - '../russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone/T-(а-также-_mask__mask__mask_)-2ltr3f_topk150_fixspacesTrue.npz'
+#  - '../russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone/T-(англ.-_mask_)-2ltr1f0s_topk150_fixspacesTrue.npz'
+  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/T-(синоним---_mask_)-2ltr1f0s_topk150_fixspacesTrue.npz'
+#  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/T-(синоним---_mask__mask_)-2ltr2f0s_topk50_fixspacesTrue.npz'
+  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/_mask_-(синоним---T)-2ltr1f0s_topk50_fixspacesTrue.npz'
+#  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/_mask__mask_-(синоним---T)-2ltr2f0s_topk50_fixspacesTrue.npz'
+#  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/_mask__mask__mask_-(синоним---T)-2ltr3f0s_topk50_fixspacesTrue.npz'
+#  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/T-(синоним---_mask__mask__mask_)-2ltr3f0s_topk50_fixspacesTrue.npz'
+#  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/T-(здесь-имеется-в-виду-L-как-_mask_)-2ltr1f0s_topk50_fixspacesTrue.npz'
+#  - './train-limitNone-maxexperwordNone-maxlen510\modelNone-beamsearchTrue-contgreedyTrue-version3/T-(здесь-имеется-в-виду-L-как-_mask__mask_)-2ltr2f0s_topk50_fixspacesTrue.npz'
+
+data_name: '../russe-wsi-kit/data/main/bts-rnc/train.csv'
+topk: 128 # size of the substitutes' top to use
+lemma_mode: Lemmatize.SUBSTFREQ
+clustering: agglomerative
+vectorizer:
+  _target_: sklearn.feature_extraction.text.TfidfVectorizer
+lemmatize: True
+analyzer: word
+min_df: 0.05
+max_df: 0.95
+ngram_range: [1, 1]
+ncs: [2,10]
+
+hydra:
+  job:
+    chdir: False
+  launcher:
+    n_jobs: 8

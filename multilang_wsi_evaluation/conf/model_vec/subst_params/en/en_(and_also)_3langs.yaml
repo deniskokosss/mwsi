@@ -1,0 +1,113 @@
+en_(and_also)_left_cwm_multi:
+  topk: 150
+  templ: <mask>_(and_also_T)
+  fill_masks: 1
+  fix_spaces: True
+  model_path: ${hydra:runtime.cwd}/xlmr_large_cwm_multi/model.pt
+  max_ex_per_word:
+  maxlen: 510
+  beam_search: False
+  cont_greedy: True
+  version: 4
+  skip_last_nmasks: 0
+
+  skip_rows:
+  limit:
+
+  rewrite_existing: True
+  debug: False
+
+en_(and_also)_right_cwm_multi:
+  topk: 150
+  templ: T_(and_also_<mask>)
+  fill_masks: 1
+  fix_spaces: True
+  model_path: ${hydra:runtime.cwd}/xlmr_large_cwm_multi/model.pt
+  max_ex_per_word:
+  maxlen: 510
+  beam_search: False
+  cont_greedy: True
+  version: 4
+  skip_last_nmasks: 0
+
+  skip_rows:
+  limit:
+
+  rewrite_existing: True
+  debug: False
+
+en_(and_also)_left_cwm_en:
+  topk: 150
+  templ: <mask>_(and_also_T)
+  fill_masks: 1
+  fix_spaces: True
+  model_path: ${hydra:runtime.cwd}/xlmr_large_cwm_en/model.pt
+  max_ex_per_word:
+  maxlen: 510
+  beam_search: False
+  cont_greedy: True
+  version: 4
+  skip_last_nmasks: 0
+
+  skip_rows:
+  limit:
+
+  rewrite_existing: True
+  debug: False
+
+en_(and_also)_right_cwm_en:
+  topk: 150
+  templ: T_(and_also_<mask>)
+  fill_masks: 1
+  fix_spaces: True
+  model_path: ${hydra:runtime.cwd}/xlmr_large_cwm_en/model.pt
+  max_ex_per_word:
+  maxlen: 510
+  beam_search: False
+  cont_greedy: True
+  version: 4
+  skip_last_nmasks: 0
+
+  skip_rows:
+  limit:
+
+  rewrite_existing: True
+  debug: False
+
+en_(and_also)_left_cwm_ru:
+  topk: 150
+  templ: <mask>_(and_also_T)
+  fill_masks: 1
+  fix_spaces: True
+  model_path: ${hydra:runtime.cwd}/xlmr_large_cwm_v2/model.pt
+  max_ex_per_word:
+  maxlen: 510
+  beam_search: False
+  cont_greedy: True
+  version: 4
+  skip_last_nmasks: 0
+
+  skip_rows:
+  limit:
+
+  rewrite_existing: True
+  debug: False
+
+en_(and_also)_right_cwm_ru:
+  topk: 150
+  templ: T_(and_also_<mask>)
+  fill_masks: 1
+  fix_spaces: True
+  model_path: ${hydra:runtime.cwd}/xlmr_large_cwm_v2/model.pt
+  max_ex_per_word:
+  maxlen: 510
+  beam_search: False
+  cont_greedy: True
+  version: 4
+  skip_last_nmasks: 0
+
+  skip_rows:
+  limit:
+
+  rewrite_existing: True
+  debug: False

@@ -1,0 +1,27 @@
+defaults:
+  - _self_
+  - model_vec: dm #dir and name of config your vectorizer
+  - override hydra/sweeper: optuna #name of sweeper
+  - override hydra/sweeper/sampler: nsgaii #name of sampler
+  #cmaes, motpe, nsgaii, random, tpe
+
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.override_dirname}
+
+return_value:
+  #metric and dataset to optimization
+  metric: ARI
+  dataset: russe_bts-rnc-ru-train
+
+model_clusterer:
+  _target_: sklearn.cluster.DBSCAN
+  eps: [0.5]
+  min_samples: [3, 5]
+  metric: [precomputed]
+  #algorithm: [auto]
+  #leaf_size: [30]

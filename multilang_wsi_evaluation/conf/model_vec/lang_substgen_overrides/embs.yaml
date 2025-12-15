@@ -1,0 +1,70 @@
+en:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"
+ru:
+  lang: "ru"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ru"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ru"
+it:
+  lang: "it"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "it"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "it"
+ja:
+  lang: "ja"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "ja"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "ja"
+sl:
+  lang: "sl"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "sl"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "sl"
+bg:
+  lang: "bg"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "sl"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "bg"
+zh:
+  lang: "zh"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "zh"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "zh"

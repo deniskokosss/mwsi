@@ -1,0 +1,54 @@
+defaults:
+  - _self_
+
+subst_params:
+  path_to_configs: ${hydra:runtime.cwd}/multilang_wsi_evaluation/conf/model_vec/subst_params
+  lang_substs:
+    en:
+      - en_or_left
+      - en_or_right
+    ru:
+      - ru2_(and_also)_left_1000
+      - ru2_(and_also)_right_1000
+    sl:
+      - sl_(and_also)_left
+      - sl_(and_also)_right
+    bg:
+      - bg_(and_also)_left
+      - bg_(and_also)_right
+    ja:
+      - ja_or_left
+      - ja_or_right
+    it:
+      - it_(and_also)_left
+      - it_(and_also)_right
+    zh:
+      - zh_or_left
+      - zh_or_right
+
+_target_: SubstWSI_rombek.src.VectorizingPipeline.VectorizingPipeline
+
+substs_overrides:
+  path_to_substs: ${hydra:runtime.cwd}/SubstWSI_rombek/substs
+  model_path: ${hydra:runtime.cwd}/xlmr_large/model.pt
+  debug: False
+
+preprocessor_config:
+  disable: False
+
+lemma_config:
+  mode: word
+  lemmatizer_name: stanza
+  cache_path: ${hydra:runtime.cwd}/SubstWSI_rombek/.lemma_cache1000
+  ru:
+    lemmatizer_name: pymorphy
+
+vec_config:
+  vec_mode: rombek
+  base_vec: tfidf # count
+  comb_mode: mean
+  ood_mode: eps
+  top_k: 150
+  ood_prob: 1e-7
+#  min_df: 0.05
+#  max_df: 0.95

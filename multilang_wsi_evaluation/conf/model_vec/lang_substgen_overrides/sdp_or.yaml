@@ -1,0 +1,9 @@
+en:
+  dynamic_pattern: "<T> or <M>"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"

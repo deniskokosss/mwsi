@@ -1,0 +1,18 @@
+ru3_(and_also)_left:
+  topk: 1000
+  templ: <mask>_(а_также_T)
+  fill_masks: 3
+  fix_spaces: True
+  model_path:
+  max_ex_per_word:
+  maxlen: 510
+  beam_search: False
+  cont_greedy: True
+  version: 3
+  skip_last_nmasks: 0
+
+  skip_rows:
+  limit:
+
+  rewrite_existing: True
+  debug: True

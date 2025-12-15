@@ -1,0 +1,18 @@
+defaults:
+  - _self_
+  - override hydra/launcher: joblib
+#  - override hydra/sweeper: optuna
+#  - override hydra/sweeper/sampler: nsgaii
+
+hydra:
+  job:
+    # Hydra changes the working directory to the run dir by default, which breaks absolute imports
+    # of in-repo packages like `SubstWSI_rombek.*`. We rely on `${hydra:runtime.cwd}` for paths anyway.
+    chdir: false
+  run:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.override_dirname}
+  launcher:
+    n_jobs: 1

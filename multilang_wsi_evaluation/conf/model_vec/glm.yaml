@@ -1,0 +1,6 @@
+_target_: GLM.glm_vectorizer.GLMVectorizer
+encoder_name: xlm-roberta-large
+encoder_weights_path: /home/myurachinskiy/WSD/wsd-multilingual-biencoders-checkpoints/wsi_wsd/semcor_05_large_exclude_all/best_model/context_encoder.ckpt
+device: cuda
+max_context_words_count:
+target_window_size: 512

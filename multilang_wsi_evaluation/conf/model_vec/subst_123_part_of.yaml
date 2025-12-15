@@ -1,0 +1,45 @@
+defaults:
+  - _self_
+
+subst_params:
+  path_to_configs: ${hydra:runtime.cwd}/multilang_wsi_evaluation/conf/model_vec/subst_params
+  mask_count: [1,2,3]
+  lang_substs:
+    en:
+      - en_part_of_left
+      - en_part_of_right
+    ru:
+      - ru_part_of_left
+      - ru_part_of_right
+    sl:
+      - sl_part_of_left
+      - sl_part_of_right
+
+_target_: SubstWSI_rombek.src.VectorizingPipeline.VectorizingPipeline
+
+substs_overrides:
+  path_to_substs: ${hydra:runtime.cwd}/SubstWSI_rombek/substs
+  model_path: ${hydra:runtime.cwd}/xlmr_large/model.pt
+#  fill_masks: 2
+  topk: 150
+  debug: False
+
+preprocessor_config:
+  disable: False
+
+lemma_config:
+  mode: word
+  lemmatizer_name: stanza
+  cache_path: ${hydra:runtime.cwd}/SubstWSI_rombek/.subst123_part_of
+  lemmas_similarity_threshold: 1.0
+
+vec_config:
+  patterns_probs: 0
+  vec_mode: rombek
+  base_vec: tfidf # count
+  comb_mode: mean
+  ood_mode: eps
+  top_k: 150
+  ood_prob: 1e-7
+#  min_df: 0.05
+#  max_df: 0.95

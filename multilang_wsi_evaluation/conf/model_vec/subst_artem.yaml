@@ -1,0 +1,65 @@
+defaults:
+  - _self_
+  - subst_params:
+    - ru_and_also_1
+    - ru_and_also_2
+
+_target_: substwsi_artem.src.vectorizer.SubstVectorizerA
+path_to_substs: /hdd/substs/ru_wsi/1m
+
+subst_params:
+  ru_and_also_1:
+    weight: 0.5
+  ru_and_also_2:
+    weight: 0.5
+
+#vectorizers
+subst_vect:
+  _target_: sklearn.feature_extraction.text.TfidfVectorizer
+  token_pattern: (?u)\b\w+\b
+  min_df: 0.03
+  max_df: 0.9
+  analyzer: word
+  ngram_range:
+    _target_: builtins.tuple
+    _args_:
+      - [ 1, 1 ]
+
+subst_vect_weak:
+  _target_: sklearn.feature_extraction.text.TfidfVectorizer
+  token_pattern: (?u)\b\w+\b
+  analyzer: word
+  ngram_range:
+    _target_: builtins.tuple
+    _args_:
+      - [ 1, 1 ]
+
+
+# substs processing
+subst_pipeline:
+  _target_: substwsi_artem.src.pipeline.pipeline.SubstPipeline
+  StripAndLower:
+    _target_: substwsi_artem.src.pipeline.component.StripAndLower.StripAndLower
+    order: 1
+  MultiSubstProcess:
+    _target_: substwsi_artem.src.pipeline.component.MultiSubstProcess.MultiSubstProcess
+    multi_select: last
+    order: 2
+  Stemmer:
+    _target_: substwsi_artem.src.pipeline.component.Stemmer.Stemmer
+    language: english
+    order: 3
+  WeightedCombination:
+    _target_: substwsi_artem.src.pipeline.component.WeightedCombination.WeightedCombination
+    missing_prob: min
+    order: 4
+  # MeanCombination:
+  #   _target_: substwsi_artem.src.pipeline.component.MeanCombination.MeanCombination
+  #   comb_mode: prod
+  #   missing_prob: min
+  #   order: 4
+  Filter:
+    _target_: substwsi_artem.src.pipeline.component.Filter.Filter
+    filter_mode: topk
+    value: 150
+    order: 5

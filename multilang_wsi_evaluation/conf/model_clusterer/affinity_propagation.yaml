@@ -1,0 +1,7 @@
+clusterer:
+  _target_: sklearn.cluster.AffinityPropagation
+  # http://genes.toronto.edu/affinitypropagation/faq.html
+  damping: [0.9, 0.95, 0.99]
+  max_iter: [4000]
+  convergence_iter: [200]
+  affinity: [euclidean]

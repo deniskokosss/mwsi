@@ -1,0 +1,2 @@
+from SubstWSI_rombek.src.VectorizingPipeline import VectorizingPipeline as SubstWSI
+from SubstWSI_rombek.src.AmramiClusterer import AmramiClusterer as AmramiClust

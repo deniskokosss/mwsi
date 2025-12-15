@@ -1,0 +1,11 @@
+defaults:
+  - _self_
+  - override hydra/sweeper: optuna
+  - override hydra/sweeper/sampler: nsgaii
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.override_dirname}

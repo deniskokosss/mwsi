@@ -1,0 +1,10 @@
+clusterer:
+  _target_: sklearn.mixture.GaussianMixture
+  n_components: [2, 3, 4, 5, 6, 7, 8, 9]
+  covariance_type: [full, tied, diag, spherical]
+  init_params: [kmeans, random]
+  max_iter: [400]
+
+# clusterer_subsets_strategy:
+#   n_components:
+#     _target_: multilang_wsi_evaluation.subsets_strategy.FullyIndividualStrategy

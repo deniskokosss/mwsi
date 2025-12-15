@@ -1,0 +1,9 @@
+clusterer:
+  _target_: sklearn.cluster.AgglomerativeClustering
+  n_clusters: [2, 3, 4, 5, 6, 7, 8, 9]
+  affinity: [euclidean]
+  linkage: [ward]
+
+clusterer_subsets_strategy:
+  n_clusters:
+    _target_: multilang_wsi_evaluation.subsets_strategy.FullyIndividualStrategy

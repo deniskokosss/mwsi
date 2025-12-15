@@ -1,0 +1,9 @@
+_target_: DeepMistake_vectorizer.DMVectorizer
+path_to_scr: 'run_model.py'
+path_model: '../mean_dist_l1ndotn_CE'
+eval_flag: '--do_eval'
+eval_output_dir: 'predictions/'
+output_dir: '../mean_dist_l1ndotn_CE'
+loss: 'crossentropy_loss'
+pool_type: 'mean'
+symmetric: 'true'

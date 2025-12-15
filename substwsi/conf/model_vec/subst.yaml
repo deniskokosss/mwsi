@@ -1,0 +1,4 @@
+_target_: SubstVectorizer.SubstVectorizer
+#russe_bts-rnc-ru-train: russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone-beamsearchFalse/"<mask><mask>-(а-также-T)-2ltr2f_topk150_fixspacesTrue.npz+0.0+"]
+data_name: russe_bts-rnc/train
+topk: 128

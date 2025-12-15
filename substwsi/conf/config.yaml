@@ -1,0 +1,47 @@
+defaults:
+  - _self_
+  - override hydra/sweeper: optuna #name of sweeper
+  - override hydra/sweeper/sampler: nsgaii #name of sampler
+  #cmaes, motpe, nsgaii, random, tpe
+
+model_vec:
+  _target_: substwsi.SubstVectorizer.SubstVectorizer
+  path_to_substs:
+    russe_bts-rnc-ru-train: /home/daniil/summer-wsi/substwsi/russe_bts-rnc/train_1-limitNone-maxexperwordNone/modelNone-beamsearchFalse/<mask><mask>-(а-также-T)-2ltr2f_topk150_fixspacesTrue.npz
+  data_name: russe_bts-rnc/train
+  topk: 128
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.override_dirname}
+
+return_value:
+  #metric and dataset to optimization
+  metric: ARI
+  dataset: russe_bts-rnc-ru-train
+
+model_clusterer:
+  _target_: sklearn.cluster.AgglomerativeClustering
+  n_clusters: [2, 3, 4, 5, 6, 7]
+  affinity: [precomputed] #always use precomputed!!! all metrics you can insert into your code in def run():
+  linkage: [average, complete, single]
+
+model_vectorizer:
+  _target_: sklearn.feature_extraction.text.TfidfVectorizer
+  token_pattern: (?u)\b\w+\b
+  min_df: 0.03
+  max_df: 0.9
+  analyzer: word
+  ngram_range:
+    _target_: builtins.tuple
+    _args_:
+      - [ 1, 1 ]
+
+eval_params:
+  metrics: [cosine, euclidean, l1, l2, manhattan] #metrics(if vectorizer return distance matrix - use [precomputed]
+  gold_datasets_dir: [../../datasets] #path to dir datasets
+  vectorizers_metrics_dir: [../../vectorizers_metrics] #path to dir for metrics
+  list_paths_datasets: [../../datasets/russe_bts-rnc/ru/_train.tsv] #paths to files for evaluation

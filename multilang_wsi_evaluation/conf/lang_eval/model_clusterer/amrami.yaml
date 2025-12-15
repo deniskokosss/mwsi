@@ -1,0 +1,9 @@
+_target_: SubstWSI_rombek.src.AmramiClusterer.AmramiClusterer
+metric: [cosine]
+method: [average]
+n_represents: [15]
+n_samples_per_rep: [20]
+max_number_senses: [7]
+min_sense_instances: [2]
+disable_tfidf: [False]
+hard_clustering: [True]

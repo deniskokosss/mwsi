@@ -1,0 +1,48 @@
+defaults:
+  - _self_
+
+subst_params:
+  path_to_configs: ${hydra:runtime.cwd}/multilang_wsi_evaluation/conf/model_vec/subst_params
+  lang_substs:
+    en:
+      - en_(or_even)_right
+      - en_(or_even)_left
+    ru:
+      - ru_(or_even)_right
+      - ru_(or_even)_left
+    sl:
+      - sl_(or_even)_right
+      - sl_(or_even)_left
+    bg:
+      - bg_(or_even)_right
+      - bg_(or_even)_left
+    ja:
+      - ja_(or_even)_right
+      - ja_(or_even)_left
+    it:
+      - it_(or_even)_right
+      - it_(or_even)_left
+    zh:
+      - zh_(or_even)_right
+      - zh_(or_even)_left
+
+_target_: SubstWSI_rombek.src.VectorizingPipeline.VectorizingPipeline
+
+preprocessor_config:
+  disable: False
+
+substs_overrides:
+  path_to_substs: ${hydra:runtime.cwd}/SubstWSI_rombek/substs/amrami_style
+  model_path: fairseq-xlmr-large/model.pt
+  fill_masks: 2
+
+lemma_config:
+  mode: word
+  lemmatizer_name: stanza
+
+vec_config:
+  vec_mode: amrami
+  ood_mode: res_mean
+  comb_mode: prod
+  vocab_size: 250000
+  top_k: 200

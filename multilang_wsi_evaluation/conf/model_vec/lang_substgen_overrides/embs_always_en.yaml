@@ -1,0 +1,70 @@
+en:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"
+ru:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"
+it:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"
+ja:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"
+sl:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"
+bg:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"
+zh:
+  lang: "en"
+  post_processing:
+    - class: lexsubgen.post_processors.lemmatizer.Lemmatizer
+      lemmatizer: "spacy_old"
+      strategy: "sum"
+      lang: "en"
+    - class: lexsubgen.post_processors.target_excluder.TargetExcluder
+      lemmatizer: "spacy_old"
+      lang: "en"

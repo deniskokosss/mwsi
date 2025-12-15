@@ -1,0 +1,12 @@
+clusterer:
+  _target_: SubstWSI_rombek.src.AmramiClusterer.AmramiClusterer
+  hard_clusterer:
+    agglo:
+      _target_: sklearn.cluster.AgglomerativeClustering
+      n_clusters: 7
+      affinity: cosine
+      linkage: average
+  n_represents: [1]
+  use_sampling: [False]
+  use_cluster_merging: [False]
+  return_soft_clustering: [False]

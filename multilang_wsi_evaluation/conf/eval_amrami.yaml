@@ -1,0 +1,24 @@
+defaults:
+  - setup_hydra
+  - _self_
+  - model_vec:
+  - model_clusterer@model_clusterers.amrami: amrami
+
+return_value:
+  # metric and dataset to optimize
+  metric: s10-avg
+  dataset: semeval10_target_sentence
+
+eval_params:
+  metrics: []
+  callable_metrics: []
+  list_paths_datasets: 
+    - ${hydra:runtime.cwd}/datasets/se10/en/semeval10_target_sentence.tsv
+    - ${hydra:runtime.cwd}/datasets/se13
+  use_fast_semeval_metrics: false
+  default_subsets_strategy:
+    _target_: multilang_wsi_evaluation.subsets_strategy.FullySharedStrategy
+
+run_settings:
+  verbose: true
+  random_state: 42
